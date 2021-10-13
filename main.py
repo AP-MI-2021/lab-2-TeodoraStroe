@@ -7,12 +7,22 @@
 """
 
 def prim(n):
+    """
+     Verifica daca un numar e prim
+     :param n:
+     :return: Bool
+    """
     for i in range (2, n-1):
         if n%i == 0 :
             return False
     return True
 
 def get_goldbach(n):
+    """
+    Verifica conjectura lui Goldbach
+    :param n:
+    :return: int
+    """
     i = 2
     while(i <= n//2):
         if prim(i) == True and prim(n-i) == True:
@@ -21,6 +31,11 @@ def get_goldbach(n):
     return -1
 
 def get_newton_sqrt(n, steps):
+    """
+    Calculeaza radicalul unui număr dat folosind metoda lui Newton
+    :param n, steps:
+    :return: float
+    """
     x = n
     count = 0
     while (1):
@@ -32,15 +47,22 @@ def get_newton_sqrt(n, steps):
     return root
 
 def test_get_goldbach():
+    #Teste pentru conjectura lui Goldbach
     assert get_goldbach(10)==(3,7)
     assert get_goldbach(7)==(2,5)
     assert get_goldbach(22)==(3,19)
 
 def test_get_newton_sqrt():
+    #Teste pentru functia cu radicali ai lui Newton
     assert get_newton_sqrt(327, 0.00001)==18.0831
     assert get_newton_sqrt(49, 2) == 8.474056603773585
 
 def is_palindrome(n):
+    """
+    Determină dacă un număr dat este palindrom
+    :param n:
+    :return: Bool
+    """
     o = 0
     n2 = n
     while (n != 0):
@@ -52,6 +74,7 @@ def is_palindrome(n):
         return False
 
 def test_is_palindrome():
+    #Teste pentru functia de palindrom
     assert is_palindrome(1991) == True
     assert is_palindrome(1823) == False
     assert is_palindrome(1725) == False
